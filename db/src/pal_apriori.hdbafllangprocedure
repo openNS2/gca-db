@@ -1,0 +1,10 @@
+{
+    "area" : "AFLPAL",
+    "function" : "APRIORIRULE",
+    "parameters" : [
+        { "direction" : "IN",  "type" : "tt_apriori_data"},
+        { "direction" : "IN",  "type" : "tt_params"},
+        { "direction" : "OUT", "type" : "tt_results"},
+        { "direction" : "OUT", "type" : "tt_pmml"}
+    ]
+}

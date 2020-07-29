@@ -1,0 +1,6 @@
+entity LDA_PARAMETER_TBL {
+    PARAM_NAME   : hana.VARCHAR(256);
+    INT_VALUE    : Integer;
+    DOUBLE_VALUE : Double;
+    STRING_VALUE : hana.VARCHAR(1000);
+}

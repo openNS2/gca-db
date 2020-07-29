@@ -1,0 +1,21 @@
+table type tt_apriori_data {
+    "eventid"    : Integer;
+    "event_chars" : String(900);
+};
+table type tt_params {
+    "PARAM_NAME"   : String(100);
+    "INT_VALUE"    : Integer;
+    "DOUBLE_VALUE" : Double;
+    "STRING_VALUE" : String(100);
+};
+table type tt_results {
+    "ANTECEDENT" : String(300);
+    "CONSEQUENT" : String(300);
+    "SUPPORT"    : Double;
+    "CONFIDENCE" : Double;
+    "LIFT"       : Double;
+};
+table type tt_pmml {
+    ID        : Integer;
+    PMMLMODEL : String(5000);
+};

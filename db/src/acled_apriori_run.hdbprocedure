@@ -1,0 +1,52 @@
+PROCEDURE "ACLED_APRIORI_RUN"(
+	IN yr INTEGER,
+	IN capital NVARCHAR(120),
+	IN covid INTEGER,
+	OUT RESULTS TABLE (
+		ANTECEDENT NVARCHAR(300),
+		CONSEQUENT NVARCHAR(300),
+		SUPPORT DOUBLE,
+		CONFIDENCE DOUBLE,
+		LIFT DOUBLE
+	)
+)
+   LANGUAGE SQLSCRIPT
+	READS SQL DATA
+	WITH RESULT VIEW ACLED_APRIORI_VIEW AS
+BEGIN
+   COUNTRY_DATA_ACLED =
+	SELECT * FROM "ACLED_FULL"
+	WHERE COORDINATES.ST_Within(
+		(
+			SELECT ST_ConvexHullAggr(SHAPE) FROM 
+			(
+				SELECT DISTINCT SHAPE FROM "FSI_FINAL"
+				WHERE "capital" = :capital
+			)
+		)
+	) = 1 AND "year" = :yr
+	AND "data_id" >= :covid;
+	
+	PARAMS = SELECT * FROM "ACLED_PARAM_TBL";
+	
+	APRIORI_DATA = 
+	SELECT TO_NVARCHAR("eventid") as "eventid", "event_chars" FROM
+	(
+		SELECT "data_id" as "eventid", 'location: ' || "location" as "event_chars" FROM :COUNTRY_DATA_ACLED
+			UNION ALL
+		SELECT "data_id" as "eventid", 'month: ' || SUBSTR_REGEXPR('[A-Z]{1}[a-z]{1,20}' IN "event_date") as "event_chars" FROM :COUNTRY_DATA_ACLED
+			UNION ALL
+		SELECT "data_id" as "eventid", 'event type: '|| "event_type" as "event_chars" FROM :COUNTRY_DATA_ACLED
+			UNION ALL
+		SELECT "data_id" as "eventid", 'sub-event type: ' || "sub_event_type" as "event_chars" FROM :COUNTRY_DATA_ACLED
+			UNION ALL
+		SELECT "data_id" as "eventid", 'Secondary Actor: ' || "actor2" as "event_chars" FROM :COUNTRY_DATA_ACLED
+	); 
+	
+	CALL "pal_apriori" (:APRIORI_DATA, :PARAMS, RESULTS_DIRTY, INDEXES);
+	
+	RESULTS = 
+	SELECT TOP 100 * FROM :RESULTS_DIRTY
+		WHERE ANTECEDENT NOT LIKE 'event%' AND ANTECEDENT NOT LIKE 'sub%'
+		ORDER BY CONFIDENCE DESC;
+END
