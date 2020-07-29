@@ -1,4 +1,4 @@
 entity ACLED_NOTES_ALL {
     "data_id"    : Integer;
-    "tidy_notes" : LargeString;
+    "tidy_notes" : String(5000);
 };
