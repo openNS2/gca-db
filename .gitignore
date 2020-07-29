@@ -1,3 +1,5 @@
+node_modules
+mtad.yaml
 *.csv
 /mta_archives/
 fioriHtmlRunner.html
