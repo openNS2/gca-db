@@ -8,7 +8,9 @@ modules:
    path: db
    requires:
     - name: gca-db
-
+   parameters:
+     disk-quota: 1024M
+     memory: 1024M
 resources:
  - name: gca-db
    properties:
