@@ -1,3 +1,4 @@
+*.csv
 /mta_archives/
 fioriHtmlRunner.html
 .*/fioriHtmlRunner.html
