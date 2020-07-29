@@ -1,0 +1,15 @@
+{
+    "area" : "AFLPAL",
+    "function" : "LDAESTIMATE_ANY",
+    "parameters" : [
+        { "direction" : "IN",  "type" : "tt_lda_data"},
+        { "direction" : "IN",  "type" : "tt_lda_params"},
+        { "direction" : "OUT", "type" : "tt_group_prob"},
+        { "direction" : "OUT", "type" : "tt_empty_table"},
+        { "direction" : "OUT", "type" : "tt_topic_top_words"},
+        { "direction" : "OUT", "type" : "tt_topic_word_prob"},
+        { "direction" : "OUT", "type" : "tt_dictionary"},
+        { "direction" : "OUT", "type" : "tt_tbl66"},
+        { "direction" : "OUT", "type" : "tt_tbl77"}
+    ]
+}

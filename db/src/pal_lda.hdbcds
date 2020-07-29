@@ -1,0 +1,43 @@
+table type tt_lda_data {
+    "PAPER": String(5000);
+    "DOCS": String(5000);
+};
+table type tt_lda_params {
+    "PARAM_NAME": String(256);
+    "INT_VALUE": Integer;
+    "DOUBLE_VALUE": Double;
+    "STRING_VALUE": String(1000);
+};
+table type tt_group_prob {
+    "PAPER": String(5000);
+    "TOPIC_ID": Integer;
+    "PROBABILITY": Double;
+};
+table type tt_empty_table {
+    "DOCUMENT_ID": String(1000);
+    "WORD_ID": Integer;
+    "TOPIC_ID": Integer;
+};
+table type tt_topic_top_words {
+    "TOPIC_ID": Integer;
+    "WORDS": String(5000);
+};
+table type tt_topic_word_prob {
+    "TOPIC_ID": Integer;
+    "WORD_ID": Integer;
+    "PROBABILITY": Double;
+};
+table type tt_dictionary {
+    "WORD_ID": Integer;
+    "WORD": String(5000);
+};
+table type tt_tbl66 {
+    "STAT_NAME": String(256);
+    "STAT_VALUE": String(1000);
+};
+table type tt_tbl77 {
+    "PARAM_NAME": String(256);
+    "INT_VALUE": Integer;
+    "DOUBLE_VALUE": Double;
+    "STRING_VALUE": String(1000);
+};
