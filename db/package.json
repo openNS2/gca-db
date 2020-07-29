@@ -2,7 +2,7 @@
     "name": "deploy",
     "dependencies": {
         "@sap/hdi-deploy": "^3",
-        "adm-zip": "^0.4.14"
+        "node-stream-zip": "^1.11.2"
     },
     "engines": {
         "node": "~12.16.0",

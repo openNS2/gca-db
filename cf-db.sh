@@ -14,4 +14,4 @@ cf deploy ./ -f
 cf create-service-key gca-db gca-db-key
 
 rm mtad.yaml
-rm gca-db.mtar
+rm gca-hdb.mtar

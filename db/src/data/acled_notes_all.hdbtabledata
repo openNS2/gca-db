@@ -1,0 +1,20 @@
+{
+	"format_version": 1,
+	"imports": [{
+		"target_table": "ACLED_NOTES_ALL",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "acled_notes_all.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"delete_existing_foreign_data": true,
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"column_mappings": {
+			"data_id": 1,
+			"tidy_notes": 2
+		}
+	}]
+}

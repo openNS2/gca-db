@@ -4,7 +4,9 @@ const fs = require('fs');
 const path = './src/data';
 const csvFiles = [
     `${path}/acled_notes_all.csv`,
-    `${path}/lda_parameter_tbl.csv`
+    `${path}/lda_parameter_tbl.csv`,
+    `${path}/acled_param_tbl.csv`,
+    `${path}/acled_full.csv`
 ];
 
 csvFiles.forEach(csvFile => {

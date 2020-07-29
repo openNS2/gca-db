@@ -1,0 +1,52 @@
+{
+	"format_version": 1,
+	"imports": [{
+		"target_table": "ACLED_FULL",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "acled_full.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"delete_existing_foreign_data": true,
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"column_mappings": {
+                  "data_id": 1,
+                  "iso": 2,
+                  "event_id_cnty": 3,
+                  "event_id_no_cnty": 4,
+                  "event_date": 5,
+                  "year": 6,
+                  "time_precision": 7,
+                  "event_type": 8,
+                  "sub_event_type": 9,
+                  "actor1": 10,
+                  "assoc_actor_1": 11,
+                  "inter1": 12,
+                  "actor2": 13,
+                  "assoc_actor_2"  : 14,
+                  "inter2": 15,
+                  "interaction": 16,
+                  "region": 17,
+                  "country": 18,
+                  "admin1": 19,
+                  "admin2": 20,
+                  "admin3": 21,
+                  "location": 22,
+                  "latitude": 23,
+                  "longitude": 24,
+                  "geo_precision": 25,
+                  "source": 26,
+                  "source_scale": 27,
+                  "notes": 28,
+                  "fatalities": 29,
+                  "timestamp": 30,
+                  "iso3": 31,
+                  "COORDINATES": 32,
+                  "ID": 33,
+                  "FSI_REGION": 34
+		}
+	}]
+}

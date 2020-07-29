@@ -4,15 +4,17 @@ version: 0.0.1
 
 modules:
  - name: db-deployer
-   type: hdb
+   type: com.sap.xs.hdi
    path: db
    requires:
     - name: gca-db
    parameters:
-     disk-quota: 1024M
-     memory: 1024M
+     disk-quota: 2048M
+     memory: 512M
 resources:
  - name: gca-db
    properties:
       hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container
+   parameters:
+    service: hana

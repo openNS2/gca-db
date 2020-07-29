@@ -1,0 +1,22 @@
+{
+	"format_version": 1,
+	"imports": [{
+		"target_table": "ACLED_PARAM_TBL",
+		"source_data": {
+			"data_type": "CSV",
+			"file_name": "acled_param_tbl.csv",
+			"has_header": false,
+			"dialect": "HANA",
+			"delete_existing_foreign_data": true,
+			"type_config": {
+				"delimiter": ","
+			}
+		},
+		"column_mappings": {
+			"PARAM_NAME" : 1,
+            "INT_VALUE" : 2,
+            "DOUBLE_VALUE" : 3,
+            "STRING_VALUE" : 4
+		}
+	}]
+}
