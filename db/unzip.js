@@ -3,7 +3,7 @@
 const AdmZip = require('adm-zip');
 
 const dataDir = './src/data';
-const path = './src/zip';
+const path = './zip';
 const zipFiles = [
     `${path}/acled_notes_all.zip`,
     `${path}/lda_parameter_tbl.zip`
