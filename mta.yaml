@@ -17,4 +17,6 @@ resources:
       hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container
    parameters:
+    config:
+      schema: hana
     service: hana
