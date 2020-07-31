@@ -1,4 +1,5 @@
-node_modules
+*.mtar
+db/node_modules
 mtad.yaml
 *.csv
 /mta_archives/

@@ -6,6 +6,12 @@ if [[ -z "$multiapps" ]]; then
   exit 1
 fi
 
+nm="./db/node_modules"
+if [ -d "$nm" ]; then
+  echo "Deleting $nm"
+  rm -rf $nm
+fi
+
 echo "Creating temporary mtad.yaml from mta.yaml"
 cp mta.yaml mtad.yaml
 
