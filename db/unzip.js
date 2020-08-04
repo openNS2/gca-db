@@ -1,6 +1,5 @@
 'use strict';
 
-const fs = require('fs');
 const StreamZip = require('node-stream-zip');
 
 const dataDir = './src/data';

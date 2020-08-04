@@ -1,22 +1,23 @@
 ID: gca-hdb
-_schema-version: '2.1'
+_schema-version: "2.1"
 version: 0.0.1
-
 modules:
- - name: db-deployer
-   type: com.sap.xs.hdi
-   path: db
-   requires:
-    - name: gca-db
-   parameters:
-     disk-quota: 2048M
-     memory: 512M
+  - name: db-deployer
+    type: com.sap.xs.hdi
+    path: db
+    requires:
+      - name: gca-db
+    env:
+      OPTIMIZE_MEMORY: true
+    parameters:
+      disk-quota: 2048M
+      memory: 2048M
 resources:
- - name: gca-db
-   properties:
-      hdi-container-name: ${service-name}
-   type: com.sap.xs.hdi-container
-   parameters:
-    config:
-      schema: hana
-    service: hana
+  - name: gca-db
+    properties:
+      hdi-container-name: "${service-name}"
+    type: com.sap.xs.hdi-container
+    parameters:
+      config:
+        schema: hana
+      service: hana
