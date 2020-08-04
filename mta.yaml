@@ -1,5 +1,5 @@
 ID: gca-hdb
-_schema-version: "2.1"
+_schema-version: "3.3"
 version: 0.0.1
 modules:
   - name: db-deployer
@@ -7,7 +7,7 @@ modules:
     path: db
     requires:
       - name: gca-db
-    env:
+    properties:
       OPTIMIZE_MEMORY: true
     parameters:
       disk-quota: 2048M
