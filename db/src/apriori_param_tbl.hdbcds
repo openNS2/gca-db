@@ -1,4 +1,4 @@
-entity ACLED_PARAM_TBL {
+entity APRIORI_PARAM_TBL {
     "PARAM_NAME"   : hana.VARCHAR(100);
     "INT_VALUE"    : Integer;
     "DOUBLE_VALUE" : Double;

@@ -1,7 +1,7 @@
 {
 	"format_version": 1,
 	"imports": [{
-		"target_table": "ACLED_PARAM_TBL",
+		"target_table": "APRIORI_PARAM_TBL",
 		"source_data": {
 			"data_type": "CSV",
 			"file_name": "acled_param_tbl.csv",
