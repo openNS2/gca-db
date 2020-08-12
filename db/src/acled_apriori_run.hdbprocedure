@@ -32,15 +32,15 @@ BEGIN
 	APRIORI_DATA = 
 	SELECT TO_NVARCHAR("eventid") as "eventid", "event_chars" FROM
 	(
-		SELECT "data_id" as "eventid", 'location: ' || "location" as "event_chars" FROM :COUNTRY_DATA_ACLED
+		SELECT "data_id" as "eventid", '$location=' || LOWER("location") || '$ ' as "event_chars" FROM :COUNTRY_DATA_ACLED
 			UNION ALL
-		SELECT "data_id" as "eventid", 'month: ' || SUBSTR_REGEXPR('[A-Z]{1}[a-z]{1,20}' IN "event_date") as "event_chars" FROM :COUNTRY_DATA_ACLED
+		SELECT "data_id" as "eventid", '$month=' || LOWER(SUBSTR_REGEXPR('[A-Z]{1}[a-z]{1,20}' IN "event_date")) || '$ ' as "event_chars" FROM :COUNTRY_DATA_ACLED
 			UNION ALL
-		SELECT "data_id" as "eventid", 'event type: '|| "event_type" as "event_chars" FROM :COUNTRY_DATA_ACLED
+		SELECT "data_id" as "eventid", '$eventtype='|| LOWER("event_type") || '$ ' as "event_chars" FROM :COUNTRY_DATA_ACLED
 			UNION ALL
-		SELECT "data_id" as "eventid", 'sub-event type: ' || "sub_event_type" as "event_chars" FROM :COUNTRY_DATA_ACLED
+		SELECT "data_id" as "eventid", '$subeventtype=' || LOWER("sub_event_type") || '$ ' as "event_chars" FROM :COUNTRY_DATA_ACLED
 			UNION ALL
-		SELECT "data_id" as "eventid", 'Secondary Actor: ' || "actor2" as "event_chars" FROM :COUNTRY_DATA_ACLED
+		SELECT "data_id" as "eventid", '$secondaryactor=' || LOWER("actor2") || '$ ' as "event_chars" FROM :COUNTRY_DATA_ACLED
 	); 
 	
 	CALL "pal_apriori" (:APRIORI_DATA, :PARAMS, RESULTS_DIRTY, INDEXES);
