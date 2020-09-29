@@ -1,5 +1,6 @@
 {
     "name": "deploy",
+    "version": "0.2.0",
     "dependencies": {
         "@sap/hdi-deploy": "^3",
         "node-stream-zip": "^1.11.2"
