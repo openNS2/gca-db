@@ -6,7 +6,7 @@
 			"data_type": "CSV",
 			"file_name": "acled_full.csv",
 			"has_header": false,
-            "no_data_import": true,
+            "no_data_import": false,
 			"dialect": "HANA",
 			"delete_existing_foreign_data": true,
 			"type_config": {
