@@ -28,15 +28,27 @@ This application will deploy a [SAP HANA database](https://www.sap.com/products/
 
 ## Bugfix workaround
 
-* Currently the ACLED data is **not** loaded on initial creation, due to an allocation bug with both database container, table and content creation at the same time.
+* Currently there is a memory allocation error when attempting to load all the data at once
 
-* The workaround is to run the `cf-db.sh` script as is, then edit the `db/src/data/acled_full.hdbtabledata` config file and change the following parameter from `true` to
+* The fix is to not load the **ACLED_NOTES_ALL** table by default. `db/src/data/acled_notes_all.hdbtabledata` has this option set 
 
 ```json
-"no_data_import": false
+"no_data_import": true
 ```
 
-* Now run the `cf-db.sh` script again and everything will be imported!
+* After running `cf-db.sh`, login into SAP Web IDE Full-Stack and navigate to database explorer.
+
+* Connect to the `gca-db` database, select the **ACLED_NOTES_ALL** table, right-click and select `import data`
+
+* Locally unzip `zip/acled_notes_all.zip` to a csv
+
+* Upload `acled_notes_all.csv`
+  * Uncheck `has header`
+  * Select the `ACLED_NOTES_ALL` table
+  * Map `COLUMN_1` to `data_id` and `COLUMN_2` to `tidy_notes`
+
+* Confirm and run the import
+
 
 ## Access the database
 
