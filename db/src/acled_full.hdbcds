@@ -33,4 +33,12 @@ entity ACLED_FULL {
     "COORDINATES"      : hana.ST_POINT;
     "ID"               : hana.VARCHAR(200);
     "FSI_REGION"       : hana.VARCHAR(100);
+}
+technical configuration {
+    // 'Creating Full-Text Indexes Using CDS Annotations' on help.sap.com
+    fulltext index fti_notes on (notes)
+        fast preprocess off
+        async
+        language detection('en')
+        fuzzy search index on;
 };
